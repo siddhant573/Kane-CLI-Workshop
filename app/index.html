@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V16 Food</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app" id="app">
+    <!-- LOGIN -->
+    <section class="view view--login" data-view="login" data-testid="view.login">
+      <div class="card card--auth">
+        <div class="brand">
+          <div class="brand__logo">🍽️</div>
+          <h1 class="brand__name">V16 Food</h1>
+          <p class="brand__tag">Order in. Eat well.</p>
+        </div>
+        <form id="loginForm" class="stack" novalidate>
+          <input class="input" type="email" placeholder="Email" aria-label="Email"
+                 data-testid="login.email" autocomplete="username" />
+          <input class="input" type="password" placeholder="Password" aria-label="Password"
+                 data-testid="login.password" autocomplete="current-password" />
+          <p class="error" data-testid="login.error" hidden>Enter your email and password</p>
+          <button class="btn btn--primary" type="submit" data-testid="login.submit">Sign In</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="view" data-view="menu" data-testid="view.menu" hidden>
+      <header class="topbar">
+        <h1 class="topbar__title">V16 Food</h1>
+        <button class="cartbtn" data-testid="menu.cart" aria-label="Open cart">
+          🛒 <span class="badge" data-testid="menu.cart.badge" hidden>0</span>
+        </button>
+      </header>
+      <div class="list" id="menuList"><!-- rows injected --></div>
+    </section>
+
+    <!-- CART -->
+    <section class="view" data-view="cart" data-testid="view.cart" hidden>
+      <header class="topbar">
+        <button class="linkbtn" data-nav="menu" aria-label="Back to menu">‹ Menu</button>
+        <h1 class="topbar__title">Cart</h1>
+        <span></span>
+      </header>
+      <div class="list" id="cartList"><!-- rows injected --></div>
+      <p class="empty" data-testid="cart.empty" hidden>Your cart is empty</p>
+      <div class="summary card" id="cartSummary">
+        <div class="summary__row"><span>Subtotal</span><span data-testid="cart.subtotal">$0.00</span></div>
+        <div class="summary__row"><span>Delivery</span><span data-testid="cart.delivery">$2.00</span></div>
+        <div class="summary__row summary__row--total"><span>Total</span><span data-testid="cart.total">$0.00</span></div>
+      </div>
+      <div class="footer">
+        <button class="btn btn--primary" data-testid="cart.checkout" data-nav="checkout">Checkout</button>
+      </div>
+    </section>
+
+    <!-- CHECKOUT -->
+    <section class="view" data-view="checkout" data-testid="view.checkout" hidden>
+      <header class="topbar">
+        <button class="linkbtn" data-nav="cart" aria-label="Back to cart">‹ Cart</button>
+        <h1 class="topbar__title">Checkout</h1>
+        <span></span>
+      </header>
+      <form id="checkoutForm" class="stack">
+        <label class="field">
+          <span class="field__label">Full name</span>
+          <input class="input" type="text" data-testid="checkout.name" aria-label="Full name" />
+        </label>
+        <label class="field">
+          <span class="field__label">Delivery address</span>
+          <input class="input" type="text" data-testid="checkout.address" aria-label="Delivery address" />
+        </label>
+        <fieldset class="field" data-testid="checkout.payment">
+          <span class="field__label">Payment method</span>
+          <div class="segment">
+            <label class="segment__opt"><input type="radio" name="payment" value="Card" checked /> Card</label>
+            <label class="segment__opt"><input type="radio" name="payment" value="Cash" /> Cash</label>
+          </div>
+        </fieldset>
+        <div class="summary__row summary__row--total card summary">
+          <span>Order total</span><span data-testid="checkout.total">$0.00</span>
+        </div>
+        <button class="btn btn--primary" type="submit" data-testid="checkout.place" disabled>Place Order</button>
+      </form>
+    </section>
+
+    <!-- CONFIRMATION -->
+    <section class="view view--center" data-view="confirmation" data-testid="view.confirmation" hidden>
+      <div class="card card--confirm">
+        <div class="confirm__check">✓</div>
+        <h1 class="confirm__title" data-testid="confirm.title">Order placed!</h1>
+        <div class="confirm__box">
+          <p class="confirm__label">Order number</p>
+          <p class="confirm__order" data-testid="confirm.order">V16-1042</p>
+          <p class="confirm__total" data-testid="confirm.total">Total paid $0.00</p>
+        </div>
+        <button class="btn btn--primary" data-testid="confirm.done" data-nav="menu">Back to Menu</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

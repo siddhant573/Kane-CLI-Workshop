@@ -1,0 +1,9 @@
+# transient kane-cli run outputs
+output-*/
+
+# local assurance store + authored tests (generated live during the workshop)
+.context/
+.testmuai/
+
+# macOS
+.DS_Store
