@@ -14,10 +14,12 @@ and receives an order confirmation. There is **no backend** — all state is in-
 (plain HTML/CSS/JS) and deterministic, so every run produces the same result.
 
 - Target: desktop browser (kane-cli default target, drives local Google Chrome).
-- Served locally at **http://localhost:4173** (`./serve.sh`).
+- Served locally at **http://localhost:4173** (`./serve.sh`). [this is permanent]
 - Stack: vanilla HTML/CSS/JS — no build step, no framework, no network.
 
 ## 2. Business use-cases
+
+All usescase and tests must contain login: kane-cli@testmuconf.com password: testmuconf2026
 
 | ID | Use-case | Summary |
 |----|----------|---------|
