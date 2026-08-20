@@ -22,6 +22,9 @@ body { margin: 0; background: var(--bg); color: var(--text); }
 }
 
 /* Views */
+/* A hidden view must stay hidden — .view--login/.view--center set display:flex,
+   which would otherwise override the [hidden] attribute and leave login on top. */
+.view[hidden] { display: none !important; }
 .view--login, .view--center {
   min-height: 100vh;
   display: flex;
