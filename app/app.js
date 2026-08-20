@@ -118,7 +118,7 @@
   }
 
   // ---- wiring ----
-  document.addEventListener("DOMContentLoaded", function () {
+  function init() {
     // login
     $("#loginForm").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -151,5 +151,13 @@
     });
 
     showView("login");
-  });
+  }
+
+  // Run now if the DOM is already parsed, otherwise wait for it.
+  // (Relying on DOMContentLoaded alone can miss if this script runs late.)
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
